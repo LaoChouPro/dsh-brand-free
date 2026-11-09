@@ -1,0 +1,67 @@
+{
+  "name": "dsh-brand-free",
+  "version": "1.0.0",
+  "description": "Hide decorative DeepSeek product branding in the DeepSeek Harness Web & Desktop UI while enabled; disabling immediately restores the original interface.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "ui",
+    "skin",
+    "brand-free",
+    "minimal"
+  ],
+  "license": "MIT",
+  "author": "LaoChouPro",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaoChouPro/dsh-brand-free.git"
+  },
+  "homepage": "https://github.com/LaoChouPro/dsh-brand-free#readme",
+  "bugs": {
+    "url": "https://github.com/LaoChouPro/dsh-brand-free/issues"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node ./test/smoke.test.mjs",
+    "check": "node --check index.js && node --check client.js && node ./test/smoke.test.mjs"
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.1.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

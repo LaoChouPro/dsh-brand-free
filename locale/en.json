@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Brand-free interface",
+    "description": "Hides decorative sidebar, new-session, and running-status branding while enabled; disabling it restores the original interface."
+  }
+}
